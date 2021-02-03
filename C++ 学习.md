@@ -38,13 +38,13 @@ int * p; //变量保存的地址所在内存单元的数据类型为整型
 
  - cin >> x 字符读取；cin.get() 和 cin.getline()按行读取
 
-> getline()：每次读完一行，在存储字符串时，会把换行符替换为空字符
- > get()：读取到行尾巴，区别在于：get()并不在读取并丢弃换行符，而是将其留在输入队列中。如果两次连续调用get()，下次get()获取到的第一个字符是换行符，因此get()认为已到达行尾
+   > getline()：每次读完一行，在存储字符串时，会把换行符替换为空字符
+   > get()：读取到行尾巴，区别在于：get()并不在读取并丢弃换行符，而是将其留在输入队列中。如果两次连续调用get()，下次get()获取到的第一个字符是换行符，因此get()认为已到达行尾
 
  - char str[] 和 char* str 区别
 
-  > char str[10] = "hello"， 可通过str[i]来改变值，编译器会把str数组从第一个元素把hello\0组逐个填入
-  > char* str = "hello"，字符串常量，不可改变
+   > char str[10] = "hello"， 可通过str[i]来改变值，编译器会把str数组从第一个元素把hello\0组逐个填入
+   > char* str = "hello"，字符串常量，不可改变
 
  - char a[], char *, char * a[]的区别
 
@@ -259,15 +259,13 @@ int * p; //变量保存的地址所在内存单元的数据类型为整型
    Worker * pw2 = (Singer *) &ed; //正确
    ```
 
-   
-
    ```c++
 /*
    使用单继承，对应构造函数的改变
-   单继承：C类的构造函数只能调用B类的构造函数，B类只能调用A类的构造函数；
-C类构造函数将值m和n传递给B类的构造函数，而B类的构造函数将n值传递给A类构造函数
+单继承：C类的构造函数只能调用B类的构造函数，B类只能调用A类的构造函数；
+   C类构造函数将值m和n传递给B类的构造函数，而B类的构造函数将n值传递给A类构造函数
    */
-   class A{int a; A(int n = 0) {a = n;};
+class A{int a; A(int n = 0) {a = n;};
    claas B:public A{int b; B(int m=0, int n=0):A(n){b = m};
    class C:public B(int c; C(int q=0, int m=0, int n=0):B(m, n){c = q})
    ```
