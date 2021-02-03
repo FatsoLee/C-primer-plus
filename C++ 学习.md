@@ -260,12 +260,12 @@ int * p; //变量保存的地址所在内存单元的数据类型为整型
    ```
 
    ```c++
-/*
+   /*
    使用单继承，对应构造函数的改变
-单继承：C类的构造函数只能调用B类的构造函数，B类只能调用A类的构造函数；
+   单继承：C类的构造函数只能调用B类的构造函数，B类只能调用A类的构造函数；
    C类构造函数将值m和n传递给B类的构造函数，而B类的构造函数将n值传递给A类构造函数
    */
-class A{int a; A(int n = 0) {a = n;};
+   class A{int a; A(int n = 0) {a = n;};
    claas B:public A{int b; B(int m=0, int n=0):A(n){b = m};
    class C:public B(int c; C(int q=0, int m=0, int n=0):B(m, n){c = q})
    ```
