@@ -113,7 +113,7 @@ int * p; //变量保存的地址所在内存单元的数据类型为整型
 
  - #### 构造函数、析构函数
 
-  如果是new Stock()初始化对象，需要执行delete()，默认执行~Stock()
+    如果是new Stock()初始化对象，需要执行delete()，默认执行~Stock()
 
 - #### 类初始化流程图
 
@@ -216,34 +216,34 @@ int * p; //变量保存的地址所在内存单元的数据类型为整型
 
  - #### has-a关系
 
-> 包含对象成员的类
-> 构造函数初始化
-> 构造函数初始化顺序和它们被声明的顺序一致
-> is-a 和 has-a构造函数的初始化区别，
-> is-a是继承，在初始化基类是需要使用类名，has-a是组合，在初始化只需要类成员名
+    包含对象成员的类
+    构造函数初始化
+    构造函数初始化顺序和它们被声明的顺序一致
+    is-a 和 has-a构造函数的初始化区别，
+    is-a是继承，在初始化基类是需要使用类名，has-a是组合，在初始化只需要类成员名
 
-> ```c++
-> class Student{
->    	private：
->        	string name;
->       	valarray<double> scorces;
-> };
-> // 构造函数初始化
-> Student(const std::string & s, int n) :name(s), scores(n){}
-> ```
+    ```c++
+    class Student{
+    	private：
+        	string name;
+       	valarray<double> scorces;
+    };
+    // 构造函数初始化
+    Student(const std::string & s, int n) :name(s), scores(n){}
+    ```
 
-> 对比is-a
->
-> ```c++
-> class Student:private string, private valarray<double>
-> {
-> public:
->     ...
-> };
-> // 构造函数初始化
-> // ArrayDb是std::valarray<double>别名
-> Student(const char * str,  const double * pd, int n) : std::string(s), ArrayDb(pd, n){}   
-> ```
+    对比is-a：
+
+    ```c++
+    class Student:private string, private valarray<double>
+    {
+    public:
+     ...
+    };
+    // 构造函数初始化
+    // ArrayDb是std::valarray<double>别名
+    Student(const char * str,  const double * pd, int n) : std::string(s), ArrayDb(pd, n){}   
+    ```
 
  - #### 多重继承
 
@@ -259,13 +259,15 @@ int * p; //变量保存的地址所在内存单元的数据类型为整型
    Worker * pw2 = (Singer *) &ed; //正确
    ```
 
-   使用单继承，对应构造函数的改变
+   
 
+   ```c++
+/*
+   使用单继承，对应构造函数的改变
    单继承：C类的构造函数只能调用B类的构造函数，B类只能调用A类的构造函数；
 C类构造函数将值m和n传递给B类的构造函数，而B类的构造函数将n值传递给A类构造函数
-   
-   ```c++
-class A{int a; A(int n = 0) {a = n;};
+   */
+   class A{int a; A(int n = 0) {a = n;};
    claas B:public A{int b; B(int m=0, int n=0):A(n){b = m};
    class C:public B(int c; C(int q=0, int m=0, int n=0):B(m, n){c = q})
    ```
